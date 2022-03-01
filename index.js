@@ -1,7 +1,11 @@
 import Stack from "./DS/Stack";
+import Queue from "./DS/Queue";
+import LinkedList from "./DS/LinkedList";
 
 const STRUCTURES = {
-  newStack: Stack,
+  Stack,
+  Queue,
+  LinkedList,
 };
 
 export default STRUCTURES;

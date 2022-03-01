@@ -1,30 +1,32 @@
-export default function Queue() {
-  const arr = [];
+import ImplimentsArray from "../GeneralMethods";
+export default class Queue {
+  #arr = [];
+  constructor(newArr) {
+    this.#arr = Array.isArray(newArr) ? newArr : [];
+  }
 
-  return {
-    enqueue(item) {
-      arr.push(item);
-    },
-    dequeue() {
-      return arr.length ? arr.shift() : -1;
-    },
-    peek() {
-      return arr[arr.length - 1];
-    },
-    front() {
-      return arr[0];
-    },
-    rear() {
-      return this.peek();
-    },
-    isEmpty() {
-      return arr.length === 0;
-    },
-    size() {
-      return arr.length;
-    },
-    eraseAll() {
-      arr = [];
-    },
-  };
+  enqueue(item) {
+    this.#arr.push(item);
+  }
+  dequeue() {
+    return this.#arr.length ? this.#arr.shift() : -1;
+  }
+  peek() {
+    return this.#arr[this.#arr.length - 1];
+  }
+  front() {
+    return this.#arr[0];
+  }
+  rear() {
+    return this.peek();
+  }
+  isEmpty() {
+    return ImplimentsArray.isEmpty(this.#arr);
+  }
+  size() {
+    return ImplimentsArray.size(this.#arr);
+  }
+  eraseAll() {
+    this.#arr = ImplimentsArray.eraseAll(this.#arr);
+  }
 }
